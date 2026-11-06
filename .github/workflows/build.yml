@@ -1,4 +1,4 @@
-name: Build Minecraft Mod
+name: Build Mod
 on:
   push:
   workflow_dispatch:
@@ -8,23 +8,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: 21
 
-      - name: Build with Gradle Wrapper / Gradle
+      - name: Build Fabric Mod
         run: |
-          if [ -f ./gradlew ]; then
-            chmod +x gradlew
-            ./gradlew build
+          if [ -d "fabric" ]; then
+            cd fabric
+            chmod +x gradlew || true
+            if [ -f "./gradlew" ]; then
+              ./gradlew build
+            else
+              gradle build
+            fi
           else
-            gradle build
+            chmod +x gradlew || true
+            ./gradlew build
           fi
 
       - uses: actions/upload-artifact@v4
         with:
-          name: Mod-JARs
+          name: Mod-JAR
           path: |
             **/build/libs/*.jar
