@@ -1,0 +1,25 @@
+plugins {
+    id 'fabric-loom' version '1.5-SNAPSHOT'
+}
+
+version = '1.0.0'
+group = 'pl.novabomba'
+base { archivesName = 'novabomba-fabric' }
+
+// wspólny kod dla Forge i Fabric
+sourceSets { main { java { srcDir '../common/src/main/java' } } }
+
+repositories { mavenCentral() }
+
+dependencies {
+    minecraft "com.mojang:minecraft:1.20.1"
+    mappings loom.officialMojangMappings()
+    modImplementation "net.fabricmc:fabric-loader:0.15.7"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:0.92.2+1.20.1"
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.release = 17
+    options.encoding = 'UTF-8'
+}
+java { withSourcesJar() }

@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "id": "novabomba",
+  "version": "1.0.0",
+  "name": "NOVABOMBA",
+  "description": "Nowoczesny klient PvP: GUI Midnight/Glass/Frost, ESP, tracery, widget celu.",
+  "authors": ["NOVABOMBA"],
+  "environment": "client",
+  "entrypoints": { "client": ["pl.novabomba.fabric.NovaBombaFabric"] },
+  "depends": {
+    "fabricloader": ">=0.14.21",
+    "minecraft": "~1.20.1",
+    "java": ">=17",
+    "fabric-api": "*"
+  }
+}

@@ -1,0 +1,24 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="MIT"
+
+[[mods]]
+modId="novabomba"
+version="1.0.0"
+displayName="NOVABOMBA"
+displayTest="IGNORE_SERVER_VERSION"
+description='''Nowoczesny klient PvP: GUI Midnight/Glass/Frost, ESP, tracery, widget celu.'''
+
+[[dependencies.novabomba]]
+modId="forge"
+mandatory=true
+versionRange="[47,)"
+ordering="NONE"
+side="CLIENT"
+
+[[dependencies.novabomba]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1,1.21)"
+ordering="NONE"
+side="CLIENT"
